@@ -1,0 +1,798 @@
+$light-grey: #f3f3f3;
+
+$dark-grey-1: #232323;
+
+$primary: #ffaa02;
+
+@font-face{
+    src:url(./fonts/Lato-Regular.woff) format('woff');
+    font-family:'LatoReg';
+}
+
+@font-face{
+    src:url(./fonts/OpenSans-Regular-webfont.woff) format('woff');
+    font-family:'OpenSans';
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    background: $dark-grey-1;
+    font-family:OpenSans;
+    font-size:1.6rem;
+    color:#353535;
+    position:relative;
+}
+
+.fgrp{
+    margin:1rem 0;
+}
+
+.text-input, .select-input{
+    width:100%;
+    font-size:2rem;
+    padding:3px;
+    font-family:inherit;
+    border:1px light-gray;
+}
+
+.errbox{
+    font-size:1.5rem;
+    color:red;
+    font-weight:700;
+    font-family:LatoReg;
+}
+
+.textarea{
+    width:100%;
+    height:15rem;
+    font-family:inherit;
+    font-size:2rem;
+}
+
+h1, h2, h3 {
+    text-transform:uppercase;
+}
+
+a, button, select{
+    cursor:pointer;
+}
+
+.rem15{
+    font-size:1.5rem;
+}
+
+.m-rem1-tb{
+    margin:1rem 0;
+}
+
+.p-rem1{
+    padding:1rem;
+}
+
+label{
+    font-size:1.5rem;
+    font-family:LatoReg;
+}
+
+.fa.fa-star{
+    color:#ffe900;
+}
+
+fieldset{
+    border:0;
+}
+
+
+// ************ BUTTON ***************
+.btn{
+
+    border:0;
+    padding:.5rem 1rem;
+    font-size:2rem;
+    display:block;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    border-radius:.5rem;
+    font-weight:700;
+    font-family:openSans;
+
+    &--primary{
+        background:#6536af;
+
+        &:hover{
+            background:#8347e0;
+        }
+    }
+
+    &--blue{
+        background:#4e8ed3;
+
+    }
+
+    &-hollow{
+        background:transparent;
+
+        &--blue{
+            color:#4e8ed3;
+            border:2px solid #4e8ed3;
+        }
+    }
+
+    &--wide{
+        width:100%;
+    }
+    &--disabled{
+        background:#ddd;
+        cursor:not-allowed;
+    }
+}
+
+// ************ NAVBAR ***************
+
+.header{
+    background:$dark-grey-1;
+    display:flex;
+    font-family:LatoReg;
+
+    &--1{
+        display:flex;
+        flex:1;
+
+    }
+
+    &__logobox{
+        flex:1;
+    }
+
+    &__logoimg{
+
+        height:5rem;
+        margin-left:1rem;
+        margin-top:5px;
+
+    }
+
+    &__menutoggle{
+        color:$light-grey;
+        font-size:4rem;
+        padding:1rem 1.75rem;
+        border-left:1px solid #3f3f3f;
+        
+    }
+
+    &__nav{
+        display:flex;
+    }
+
+    &__navlink{
+        display:block;
+        font-size:2rem;
+        color:$light-grey;
+        text-decoration:none;
+        padding:2.3rem;
+        border-left:1px solid #3f3f3f;
+        text-transform:uppercase;
+        transition:.3s background;
+        font-family:'LatoReg';
+
+        &:hover{
+            background:#4e8ed3;
+        }
+    }
+
+
+}
+
+@media(min-width:656px){
+
+    .header{
+        &__menutoggle{
+            display:none;
+        }
+    }
+
+}
+
+@media(max-width:655px){
+
+    .header{
+
+        flex-direction:column;
+        &--1{
+            
+        }
+        &--2{
+            display:none;
+        }
+        &--2.show{
+            display:block;
+        }
+        &__nav{
+            flex-direction:column;
+        }
+        &__navlink{
+            border-top:1px solid #3f3f3f;
+        }
+    }
+
+}
+
+
+// ************* OVERALL LAYOUT *****************
+
+.container{
+    display:grid;
+
+    &__mod{
+        &--1{
+            grid-area:mod1;
+            background:#508ec4;
+            overflow:hidden;
+        }
+        &--2{
+            grid-area:mod2;
+            background: #444;
+            color:$light-grey;
+            padding:1rem;
+            font-family:LatoReg;
+        }
+
+        &--3{
+            grid-area:mod3;
+            background:$light-grey;
+        }
+        &--4{
+            grid-area:mod4;
+        }
+    }
+}
+
+@media(max-width:655px){
+
+    .container{
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "mod1"
+        "mod2"
+        "mod3"
+        "mod4";
+    }
+}
+
+@media(min-width:656px){
+
+    .container{
+        grid-template-columns:25rem 1fr;
+        grid-template-rows:36rem 1fr 15rem;
+        grid-template-areas:
+        "mod1 mod3"
+        "mod2 mod3"
+        "mod4 mod4";
+    }
+
+}
+
+
+// ************** SIDENAV ********************
+
+.sidenav{
+    &__link{
+        display:block;
+        text-decoration:none;
+        padding:1rem;
+        font-family:LatoReg;
+        font-size:2rem;
+        color:$light-grey;
+        text-transform:uppercase;
+        border-bottom:1px solid #3f3f3f;
+        transition:.2s transform;
+
+        &:hover{
+            transform:scale(1.04);
+        }
+    }
+}
+
+@media(max-width:655px){
+    .sidenav{
+        &__linkgrp{
+            display:none;
+        }
+        &__linkgrp.show{
+            display:block;
+        }
+    }
+}
+
+@media(min-width:656px){
+    .sidenav{
+        &__toggle{
+            display:none;
+        }
+    }
+}
+
+
+// ************** USER AREA ******************
+
+.userArea{
+
+    &__mgr{
+        background:#f9f9f9;
+        margin:1rem 0;
+        border-radius:1rem;
+    }
+
+    &__mgrLink{
+        display:block;
+        font-size:1.5rem;
+        text-decoration:none;
+        font-family:OpenSans;
+        color:#595959;
+        transition:color .2s;
+        padding:1rem;
+
+        &:not(:last-child){
+            border-bottom:1px solid #e0e0e0;
+        }
+
+        &:hover{
+            color:#000;
+        }
+
+    }
+}
+
+.userAreaToggle{
+    font-size:1.75rem;
+}
+
+@media(max-width:655px){
+    .userArea{
+        display:none;
+    }
+    .userArea.show{
+        display:block;
+    }
+}
+
+// *************** BIZ SIGN IN ***************
+.bizSignInForm{
+    &.hide{
+        display:none;
+    }
+}
+
+// *************** USER SIGN IN ***************
+.signInForm{
+    &.hide{
+        display:none;
+    }
+}
+
+
+// **************** ALERT BOX *****************
+.alertBox{
+    font-size:1.5rem;
+    font-family:LatoReg;
+    font-weight:700;
+    padding:1.5rem;
+
+    &--red{
+        background:rgba(255,0,0,.3);
+    }
+}
+
+//**************** DISCUSSION MAIN ************
+.discussionMain{
+    &__menu{
+        background:#ddd;
+        padding:1rem;
+        display:flex;
+        align-items:center;
+        flex-wrap:wrap;
+        justify-content:space-between;
+    }
+
+}
+
+
+//**************** POST TILE *****************
+.postTile{
+    margin-bottom:1rem;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+    padding:1rem;
+    cursor:pointer;
+    transition:transform .2s;
+    background:#f9f9f9;
+
+    &__title{
+        font-size:2rem;
+        color:#4074c9;
+        font-weight:700;
+    }
+
+    &__author{
+        margin:.3rem 0;
+        display:flex;
+        align-items:center;
+        font-size:1.75rem;
+        &--image{
+            width:3rem;
+            margin-right:.5rem;
+        }
+    }
+
+    &__category{
+        font-size:1.25rem;
+        padding: 0.5rem;
+        border:1px solid #d6d6d6;
+        border-radius:1.5rem;
+        display:inline-block;
+        margin-top:0.5rem;
+
+    }
+
+    &:hover{
+        transform:scale(1.01);
+    }
+}
+
+
+// **************** Forum Post Box *****************
+.forumPostBox{
+    padding:1rem;
+    box-shadow:0 0 1rem rgba(0,0,0,.3);
+    margin:1rem;
+    background:#f9f9f9;
+
+
+    &__title{
+        font-size:2rem;
+        margin-bottom:.5rem;
+    }
+
+    &__author{
+        display:flex;
+        align-items:center;
+        font-size:1.75rem;
+        margin-bottom:1rem;
+
+        &--image{
+            width:3rem;
+            margin-right:.5rem;
+        }
+
+    }
+
+    &__content{
+        font-size:1.6rem;
+        padding:1rem;
+        border:1px solid #e8e8e8;
+    }
+
+    &__postcat{
+        margin-top:1rem;
+        padding: 0.5rem;
+        border:1px solid #e8e8e8;
+        border-radius:1.5rem;
+        display:inline-block;
+    }
+
+    &__menuItems{
+        margin-top:1rem;
+    }
+
+}
+
+//******************* Post Reply Box ****************
+
+.postReplyBox{
+    margin:1rem;
+    padding:1rem;
+    box-shadow:0 0 1rem rgba(0,0,0,.3);
+    background:#f9f9f9;
+
+}
+
+
+/// **************** Post Comment *********************
+
+.postComment{
+    margin:1rem;
+    padding:1rem;
+    box-shadow:0 0 1rem rgba(0,0,0,.3);
+    background:#f9f9f9;
+
+    &__author{
+        font-size:2rem;
+        font-weight:700;
+        display:flex;
+        align-items:center;
+        &--image{
+            width:3rem;
+            margin-right:.5rem;
+        }
+
+    }
+
+    &__content{
+        margin:.5rem 0;
+        color:#727272;
+    }
+
+    &__icon{
+        cursor:pointer;
+
+        &--report:hover{
+            color:red;
+        }
+    }
+
+    &__menuitem{
+        margin-right:.5rem;
+    }
+}
+
+
+// ****************** Report Modal ********************
+.reportModal{
+    position:absolute;
+    z-index:5; 
+    background:rgba(0,0,0,0.6);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:auto;
+    display:none;
+
+
+    &__main{
+        max-width:40rem;
+        margin:auto;
+        margin-top:10vh;
+        background:#f2f2f2;
+        padding:1rem;
+    }
+
+    &__closeBtn{
+        float:right;
+        color:red;
+        cursor:pointer;
+    }
+
+    &.show{
+        display:block;
+    }
+
+
+    &__form{
+
+        &.hide{
+            display:none;
+        }
+
+    }
+
+    &__response{
+        margin:1rem 0;
+
+        &.hide{
+            display:none;
+        }
+
+
+    }
+
+
+}
+
+
+// ************** NOT SIGNED-IN MODAL ******************
+
+.notSignedInModal{
+    position:absolute;
+    z-index:5; 
+    background:rgba(0,0,0,0.6);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:auto;
+    display:none;
+
+
+    &__main{
+        max-width:40rem;
+        margin:auto;
+        margin-top:10vh;
+        background:#f2f2f2;
+        padding:1rem;
+        min-height:20rem;
+    }
+
+    &__closeBtn{
+        float:right;
+        color:red;
+        cursor:pointer;
+    }
+
+    &.show{
+        display:block;
+    }
+
+}
+
+
+// *************** Change Image Modal **********************
+.changeImageModal{
+    position:absolute;
+    z-index:5; 
+    background:rgba(0,0,0,0.6);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:auto;
+    display:none;
+
+
+    &__main{
+        max-width:40rem;
+        margin:auto;
+        margin-top:10vh;
+        background:#f2f2f2;
+        padding:1rem;
+        min-height:20rem;
+    }
+
+    &__closeBtn{
+        float:right;
+        color:red;
+        cursor:pointer;
+    }
+
+    &.show{
+        display:block;
+    }
+
+}
+
+// **************** Profile Page Header *************************
+
+.profilePageHeader{
+    background:#c6c6c6;
+    position:relative;
+    width:100%;
+    height:9rem;
+
+    &__image{
+        position:absolute; 
+        top:45%;
+        left:3rem;
+    }
+
+    &__username{
+        position:absolute; 
+        bottom:1rem;
+        left:15rem;
+        color:#fff;
+        font-size:3rem;
+    }
+}
+
+// ************ Change Image area ****************
+.changeImageArea{
+    display:block;
+    width:25rem;
+    margin:auto;
+    text-align:center;
+
+    &__button{
+        text-align:center;
+        display:inline-block;
+    }
+}
+
+
+// *************** Dining Listing Tile ***********
+.diningListingTile{
+    background:#f9f9f9;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+    padding:1rem;
+    margin-bottom:1rem;
+
+    &__title{
+        font-size:1.8rem;
+        font-weight:700;
+    }
+
+    &__type{
+        padding:.5rem;
+        display:inline-block;
+        border:1px solid #ddd;
+        border-radius:2rem;
+    }
+
+    &__rating{
+        margin-right:.5rem;
+    }
+}
+
+// ***************** Dining Search Area *******************
+.diningSearchArea{
+    background:#e5e5e5;
+    padding:1rem;
+    margin-bottom:2rem;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+}
+
+
+// ***************** Deal Tile *************************
+.dealTile{
+    background:#f9f9f9;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+    padding:1rem;
+    margin:1rem 0;
+}
+
+// ****************** Job Tile *************************
+
+.jobTile{
+    background:#f9f9f9;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+    padding:1rem;
+    margin-bottom:1rem;
+
+    &__jobCat{
+        padding:.5rem; 
+        border:1px solid #d6d6d6;
+        border-radius:2rem;
+        display:inline-block;
+    }
+}
+
+// ******************** Card **************************
+
+.card{
+    background:#f9f9f9;
+    border:1px solid #d6d6d6;
+    border-radius:4px;
+    padding:1rem;
+    margin-bottom:1rem;
+}
+
+//******************** Rating Radios *****************
+
+.ratingRadios{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+
+    &__fieldset{
+        margin:1rem;
+    }
+}
+
+
+
+
+
+
